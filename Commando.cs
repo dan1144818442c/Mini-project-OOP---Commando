@@ -13,14 +13,39 @@ namespace mini___project___27_5_25
         protected string[] tools = { "Hammer", "chisel", "rope", "bag", "water bottle" };
         protected string status;
 
-        public Commando(string name, string code_name , string status)
+
+        public Commando(string name, string code_name )
         {
             this.name = name;
             this.code_name = code_name;
-            this.status = status;
+            this.status = null;
 
         }
-
+        public string GetName()
+        {
+            return this.name;
+        }
+        public string GetCodeName()
+        {
+            return this.code_name;
+        }
+        public string GetStatus()
+        {
+            return this.status;
+        }
+        public string[] GetTools()
+        {
+            return this.tools;
+        }
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+        public void SetCodeName(string code_name)
+        {
+            this.code_name = code_name;
+        }
+    
         public void Walk()
         {
             Console.WriteLine($"{this.name} is walking.");

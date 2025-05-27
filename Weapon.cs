@@ -10,7 +10,31 @@ namespace mini___project___27_5_25
     {
         string name;
         string Manufacturer;
-        string Number_of_balls;
+        int Number_of_balls;
+        public Weapon(string name, string manufacturer, int number_of_balls)
+        {
+            this.name = name;
+            this.Manufacturer = manufacturer;
+            this.Number_of_balls = number_of_balls;
+        }
+
+        public void Shoot()
+        {
+            Console.WriteLine($"{this.name} is shooting.");
+            this.Number_of_balls--;
+        }
+        public void GetName()
+        {
+            Console.WriteLine($"Weapon Name: {this.name}");
+        }
+        public string GetManufacturer()
+        {
+            return this.Manufacturer;
+        }
+        public int GetNumberOfBalls()
+        {
+            return this.Number_of_balls;
+        }
 
     }
 }
