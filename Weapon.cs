@@ -20,7 +20,13 @@ namespace mini___project___27_5_25
 
         public void Shoot()
         {
-            Console.WriteLine($"{this.name} is shooting.");
+            if (this.Number_of_balls <= 0)
+            {
+                Console.WriteLine("no balls from this weapon");
+                return;
+            }
+
+             Console.WriteLine($"{this.name} is shooting.");
             this.Number_of_balls--;
         }
         public void GetName()

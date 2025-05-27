@@ -11,28 +11,36 @@ namespace mini___project___27_5_25
         protected string name;
         protected string code_name;
         protected string[] tools = { "Hammer", "chisel", "rope", "bag", "water bottle" };
-        protected string status;
+        public string status { get; set; }
+        public string codeName { get; set; }
 
-
-        public Commando(string name, string code_name )
+        public Commando(string name, string code_name)
         {
             this.name = name;
             this.code_name = code_name;
             this.status = null;
 
         }
-        public string GetName()
+        public string GetName(string commanderRank)
         {
-            return this.name;
+            if (commanderRank == "GENERAL")
+            {
+                return this.name;
+            }
+            else
+            {
+                if (commanderRank == "COLONEL")
+                {
+                    return this.code_name;
+                }
+            }
+            Console.WriteLine("Your rank is not high enough to access this classified information.");
+
+            return null;
         }
-        public string GetCodeName()
-        {
-            return this.code_name;
-        }
-        public string GetStatus()
-        {
-            return this.status;
-        }
+
+        
+
         public string[] GetTools()
         {
             return this.tools;
@@ -41,25 +49,22 @@ namespace mini___project___27_5_25
         {
             this.name = name;
         }
-        public void SetCodeName(string code_name)
-        {
-            this.code_name = code_name;
-        }
+    
     
         public void Walk()
         {
-            Console.WriteLine($"{this.name} is walking.");
+            Console.WriteLine($"{this.code_name} is walking.");
             this.status = "Walking";
         }
         public void Hide()
         {
-            Console.WriteLine($"{this.name} is hiding.");
+            Console.WriteLine($"{this.code_name} is hiding.");
             this.status = "Hiding";
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
-            Console.WriteLine($"{this.name} is attacking.");
+            Console.WriteLine($"{this.code_name} is attacking.");
             this.status = "Attacking";
         }
     }
