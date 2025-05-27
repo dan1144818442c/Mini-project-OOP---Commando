@@ -11,13 +11,17 @@ namespace mini___project___27_5_25
         string name;
         string Manufacturer;
         int Number_of_balls;
-        public Weapon(string name, string manufacturer, int number_of_balls)
+        private Weapon(string name, string manufacturer, int number_of_balls)
         {
             this.name = name;
             this.Manufacturer = manufacturer;
             this.Number_of_balls = number_of_balls;
         }
 
+        public static Weapon create_weapon(string name, string manufacturer, int number_of_balls)
+        {
+            return new Weapon(name, manufacturer, number_of_balls);
+        }
         public void Shoot()
         {
             if (this.Number_of_balls <= 0)

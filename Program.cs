@@ -11,15 +11,19 @@ namespace mini___project___27_5_25
     {
         static void Main(string[] args)
         {
-            Commando commando1 = new Commando("John", "EagleEye");
+            Commando_factory commando_factory = new Commando_factory();
+            Commando commando1 = commando_factory.Create_commando("Air", "John", "EagleEye");
+
             commando1.Walk();
             commando1.Hide();
             commando1.Attack();
             commando1.codeName = "yair";
             Console.WriteLine(commando1.codeName );
 
-            Weapon weapon1 = new Weapon("Rifle", "ACME Corp", 30);
-            weapon1.Shoot();
+            Weapond_factorty weapon_factory = new Weapond_factorty();
+
+            Weapon weapon1 = weapon_factory.CreateWeapon("Rifle", "ACME Corp", 30);
+
             Console.WriteLine(weapon1.GetNumberOfBalls());
             AirCommando airCommando1 = new AirCommando("Sarah", "SkyHawk");
             airCommando1.Attack();
@@ -28,7 +32,7 @@ namespace mini___project___27_5_25
             foreach(Commando command  in arry)
             {
                 command.Attack();
-
+                Console.WriteLine(command.GetType());
             }
         }
     }

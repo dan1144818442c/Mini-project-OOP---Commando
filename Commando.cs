@@ -14,12 +14,17 @@ namespace mini___project___27_5_25
         public string status { get; set; }
         public string codeName { get; set; }
 
-        public Commando(string name, string code_name)
+        protected Commando(string name, string code_name)
         {
             this.name = name;
             this.code_name = code_name;
             this.status = null;
 
+        }
+
+        public static Commando CreateCommando(string name, string code_name)
+        {
+            return new Commando(name, code_name);
         }
         public string GetName(string commanderRank)
         {
