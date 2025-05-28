@@ -49,6 +49,10 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyFactoty.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IBreakable.cs" />
+    <Compile Include="IShootable.cs" />
+    <Compile Include="IWeapon.cs" />
+    <Compile Include="M16.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeaCommando.cs" />

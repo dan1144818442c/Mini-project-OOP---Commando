@@ -8,25 +8,38 @@ namespace mini___project___27_5_25
 {
     internal class Commando_factory
     {
-        protected List<Commando> commandos = new List<Commando>();
-        public Commando Create_commando(string type, string name, string code_name)
+        public enum CommandoType
         {
-            if (type == "Air")
+            Regular,
+            Air,
+            Sea
+        }
+
+        protected List<Commando> commandos = new List<Commando>();
+        public Commando Create_commando(CommandoType type, string name, string code_name)
+        {
+            Commando commando;
+            switch (type)
             {
-                AirCommando comando =  new AirCommando(name, code_name);
-                commandos.Add(comando);
-                return comando;
+                case CommandoType.Regular:
+                    commando = Commando.CreateCommando(name, code_name);
+                    commandos.Add(commando);
+                    return commando;
+                case CommandoType.Air:
+                    commando = new AirCommando(name, code_name);
+                    commandos.Add(commando);
+                    return commando;
+                case CommandoType.Sea:
+                    commando = new SeaCommando(name, code_name);
+                    commandos.Add(commando);
+                    return commando;
+
+                default:
+                    Console.WriteLine("Invalid commando type.");
+                    return null;
+
             }
-            else if (type == "Sea")
-            {
-                SeaCommando commando =  new SeaCommando(name, code_name);
-                commandos.Add(commando);
-                return commando;
-            }
-            else
-            {
-                throw new ArgumentException("Invalid commando type");
-            }
+
         }
     }
 }

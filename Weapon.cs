@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace mini___project___27_5_25
 {
-    internal class Weapon
+    internal class Weapon1
     {
         string name;
         string Manufacturer;
